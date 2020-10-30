@@ -7,11 +7,8 @@
 # - This script gets both operational and configuration state data
 #
 from ncclient import manager
-#import logging
 import xmltodict
 import pprint
-
-# logging.basicConfig(level=logging.DEBUG)
 
 #Define device information
 router = {
@@ -54,7 +51,7 @@ with manager.connect(**router, hostkey_verify=False) as m:
   print(f"Name: {config['name']['#text']}")
   print(f"Desc: {config['description']}")
   print(f"Enabled: {config['enabled']}")
-  print(f"Enabled: {config['ipv4']['address']['ip']}")
+  # print(f"Enabled: {config['ipv4']['address']['ip']}")
   print(f"Status: {op['admin-status']} / {op['oper-status']}")
   print(f"MAC: {op['phys-address']}")
   print(f"Speed: {op['speed']}")
