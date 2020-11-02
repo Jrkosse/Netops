@@ -10,14 +10,22 @@ from ncclient import manager
 import xmltodict
 import pprint
 
-# Define device information
-router = {
-  "host": "ios-xe-mgmt.cisco.com",
-  "port": "10000",
-  "username": "developer",
-  "password": "C1sco12345",
-}
+# Welcome
+print("Welcome to the Netconf_IOS-XE_BGP.py Script!")
+print("*" * 80)
+# Variable collection
+host_value = input("Host: ")
+port_value = input("Port: ")
+username = input("Username: ")
+password = input("Password: ")
 
+# Define the device and pull vars from user input
+router = {
+    "host":host_value,
+    "port": port_value,
+    "username": username,
+    "password": password,
+}
 # Define XML filter and Yang model
 int_filter = """
   <filter>

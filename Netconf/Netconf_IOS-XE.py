@@ -10,12 +10,21 @@ from ncclient import manager
 import xmltodict
 import pprint
 
-#Define device information
+# Welcome
+print("Welcome to the Netconf_IOS-XE.py Script!")
+print("*" * 80)
+# Variable collection
+host_value = input("Host: ")
+port_value = input("Port: ")
+username = input("Username: ")
+password = input("Password: ")
+
+# Define the device and pull vars from user input
 router = {
-  "host": "ios-xe-mgmt.cisco.com",
-  "port": "10000",
-  "username": "developer",
-  "password": "C1sco12345"
+    "host":host_value,
+    "port": port_value,
+    "username": username,
+    "password": password,
 }
 
 # Define our XML filter

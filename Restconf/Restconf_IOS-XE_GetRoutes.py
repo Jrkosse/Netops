@@ -4,17 +4,28 @@
 #
 #
 # - Gets routing table in XML format 
-#
+# 
 import requests
 import json
 
-#Define device information
+# Welcome
+print("Welcome to the Netconf_IOS-XE_GetRoutes.py Script!")
+print("*" * 80)
+
+# Variable collection
+host_value = input("Host: ")
+port_value = input("Port: ")
+username = input("Username: ")
+password = input("Password: ")
+
+# Define the device and pull vars from user input
 router = {
-    "host": "ios-xe-mgmt.cisco.com",
-    "port": "9443",
-    "user": "developer",
-    "password": "C1sco12345",
+    "host":host_value,
+    "port": port_value,
+    "username": username,
+    "password": password,
 }
+
 
 # Define headers for HTTPS request
 headers = {
@@ -27,7 +38,7 @@ url = f"https://{router['host']}:{router['port']}/restconf/data/ietf-routing:rou
 
 # Form the request statement
 response = requests.get(url=url, headers=headers, auth=(
-    router['user'], router['password']), verify=False).json()
+    router['username'], router['password']), verify=False).json()
 
 # Print the response of the request 
 print(json.dumps(response,indent=2))

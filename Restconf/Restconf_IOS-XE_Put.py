@@ -9,13 +9,24 @@
 import requests
 import json
 
-# Define device information
+# Welcome
+print("Welcome to the Netconf_IOS-XE_Put.py Script!")
+print("*" * 80)
+
+# Variable collection
+host_value = input("Host: ")
+port_value = input("Port: ")
+username = input("Username: ")
+password = input("Password: ")
+
+# Define the device and pull vars from user input
 router = {
-    "host": "ios-xe-mgmt.cisco.com",
-    "port": "9443",
-    "user": "developer",
-    "password": "C1sco12345",
+    "host":host_value,
+    "port": port_value,
+    "username": username,
+    "password": password,
 }
+
 
 # Define headers for HTTPS request
 headers = {
@@ -48,7 +59,7 @@ payload = {
 response = requests.put(
   url=url,
   headers=headers, 
-  auth=(router['user'], router['password']),
+  auth=(router['username'], router['password']),
   data=json.dumps(payload),
   verify=False
 )

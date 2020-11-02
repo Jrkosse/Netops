@@ -9,12 +9,21 @@
 from ncclient import manager
 import xmltodict
 
-# Define device information
+# Welcome
+print("Welcome to the Netconf_NXOS_BGP.py Script!")
+print("*" * 80)
+# Variable collection
+host_value = input("Host: ")
+port_value = input("Port: ")
+username = input("Username: ")
+password = input("Password: ")
+
+# Define the device and pull vars from user input
 router = {
-  "host": "sbx-nxos-mgmt.cisco.com",
-  "port": "10000",
-  "username": "admin",
-  "password": "Admin_1234!"
+    "host":host_value,
+    "port": port_value,
+    "username": username,
+    "password": password,
 }
 
 # Define our XML filter

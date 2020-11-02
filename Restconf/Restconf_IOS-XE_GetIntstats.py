@@ -8,13 +8,24 @@
 import requests
 import json
 
-# Define our device
+# Welcome
+print("Welcome to the Netconf_IOS-XE_BGP.py Script!")
+print("*" * 80)
+
+# Variable collection
+host_value = input("Host: ")
+port_value = input("Port: ")
+username = input("Username: ")
+password = input("Password: ")
+
+# Define the device and pull vars from user input
 router = {
-    "host": "ios-xe-mgmt.cisco.com",
-    "port": "9443",
-    "user": "developer",
-    "password": "C1sco12345",
+    "host":host_value,
+    "port": port_value,
+    "username": username,
+    "password": password,
 }
+
 
 # Define the headers for the HTTP request
 headers = {
@@ -30,7 +41,7 @@ url = f"https://{router['host']}:{router['port']}/restconf/data/Cisco-IOS-XE-int
 
 # Form our request and assign the output to response
 response = requests.get(url=url, headers=headers, auth=(
-    router['user'], router['password']), verify=False).json()
+    router['username'], router['password']), verify=False).json()
 
 # Convert data to JSON and print output
 print(json.dumps(response,indent=2))
