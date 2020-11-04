@@ -13,15 +13,10 @@ print("Welcome to the Netconf_IOS-XE_GetArp.py Script!")
 print("*" * 80)
 
 # Variable collection
-# host_value = input("Host: ")
-# port_value = input("Port: ")
-# username = input("Username: ")
-# password = input("Password: ")
-
-host_value = "ios-xe-mgmt.cisco.com"
-port_value = "9443"
-username = "developer"
-password = "C1sco12345"
+host_value = input("Host: ")
+port_value = input("Port: ")
+username = input("Username: ")
+password = input("Password: ")
 
 # Define the device and pull vars from user input
 router = {
@@ -30,7 +25,6 @@ router = {
     "username": username,
     "password": password,
 }
-
 
 # Define headers for HTTPS request
 headers = {
