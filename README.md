@@ -1,7 +1,9 @@
 # Netops
-Network Automation scripts - Derived from learning exercises 
+Network Automation scripts - Derived from learning exercises. 
 
-# NetConf
+This repository is used for training and practice on the github service as well.
+
+# Netconf
 - Sample scripts used to connect to Netconf devices. 
   - Capabilities
   - IOS-XE
