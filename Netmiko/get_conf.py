@@ -42,24 +42,30 @@ def run_device(os,ip,u,p):
     extension = ".txt"
     separator = "_"
     full_file = str(ip) + separator + base_name + separator + month + day + extension
+    try:
+        # Connect to the device
+        net_connect = ConnectHandler(**device_dict)
 
-    # Connect to the device
-    net_connect = ConnectHandler(**device_dict)
-
-    # Run the command 
-    pager_command = net_connect.send_command("terminal pager 0")
-    configuration_output = net_connect.send_command("show run")
-
-    # Define separation for when the file is appended
-    sep_output = "******************** Date: {} {} ********************\n".format(month,day)
-    # Open the above defined file and write the output of the command to the file and close it.
-    f = open(full_file, mode="a")
-    f.write(sep_output)
-    f.write(configuration_output)
-    f.close()
+        # Run the command 
+        pager_command = net_connect.send_command("terminal pager 0")
+        configuration_output = net_connect.send_command("show run")
+        net_connect.disconnect()
+    except Exception as ex:
+        print(ex)
+    else:
+        print("Device configuration retrieved for: {}".format(ip))
+        # Define separation for when the file is appended
+        sep_output = "******************** Date: {} {} ********************\n".format(month,day)
+        # Open the above defined file and write the output of the command to the file and close it.
+        f = open(full_file, mode="a")
+        f.write(sep_output)
+        f.write(configuration_output)
+        f.close()
 
         
 # Start the python program    
 if __name__ == "__main__":
     main()
+    print("-" * 50)
     print("Script Complete!")
+    print("-" * 50)
