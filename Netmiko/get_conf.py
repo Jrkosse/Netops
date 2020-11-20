@@ -47,7 +47,7 @@ def run_device(os,ip,u,p):
         net_connect = ConnectHandler(**device_dict)
 
         # Run the command 
-        pager_command = net_connect.send_command("terminal pager 0")
+        net_connect.send_command("terminal pager 0")
         configuration_output = net_connect.send_command("show run")
         net_connect.disconnect()
     except Exception as ex:
