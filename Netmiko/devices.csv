@@ -1,6 +1,8 @@
 # v2,,,
 # type, description, address,
-ip,Branch1-ASA,cisco_asa,192.168.86.79
-ip,Branch1-Cisco_Router,cisco_ios,192.168.86.203
+ip,R3,cisco_ios,192.168.86.221
+ip,R2,cisco_ios,192.168.86.222
+ip,R1,cisco_ios,192.168.86.223
+ip,internet,cisco_ios,192.168.86.224
 # Do not modify below,,,
 eof,,,
