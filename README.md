@@ -3,6 +3,9 @@ Network Automation scripts - Derived from learning exercises.
 
 This repository is used for training and practice on the github service as well.
 
+# Flask
+- Fully functional Flask app to pull vlan information
+
 # Netconf
 - Sample scripts used to connect to Netconf devices. 
   - Capabilities
